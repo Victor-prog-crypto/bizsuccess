@@ -77,7 +77,7 @@ function formatSettingsLines(settings: UserSettings | null): string {
     `- Selected Model: ${settings.selectedModel?.provider}:${settings.selectedModel?.name}`,
     `- Chat Mode: ${settings.selectedChatMode ?? "default"}`,
     `- Auto Approve Changes: ${settings.autoApproveChanges ?? "n/a"}`,
-    `- Dyad Pro Enabled: ${settings.enableDyadPro ?? "n/a"}`,
+    `- Bizsaas Pro Enabled: ${settings.enableDyadPro ?? "n/a"}`,
     `- Thinking Budget: ${settings.thinkingBudget ?? "n/a"}`,
     `- Runtime Mode: ${settings.runtimeMode2 ?? "n/a"}`,
     `- Release Channel: ${settings.releaseChannel ?? "n/a"}`,
@@ -91,7 +91,7 @@ function formatSystemInfoSection(
   userBudget: UserBudgetInfo | undefined,
 ): string {
   return `## System Information
-- Dyad Version: ${debugInfo.dyadVersion}
+- Bizsaas Version: ${debugInfo.dyadVersion}
 - Platform: ${debugInfo.platform}
 - Architecture: ${debugInfo.architecture}
 - Node Version: ${debugInfo.nodeVersion || "n/a"}
@@ -442,7 +442,7 @@ ${formatLogsSection(debugInfo)}
       skipInitial={!hasNavigated.current}
     >
       <DialogHeader>
-        <DialogTitle>Need help with Dyad?</DialogTitle>
+        <DialogTitle>Need help with Bizsaas?</DialogTitle>
       </DialogHeader>
       <DialogDescription>
         If you need help or want to report an issue, here are some options:
@@ -455,7 +455,7 @@ ${formatLogsSection(debugInfo)}
             onClick={() => setIsHelpBotOpen(true)}
             className="w-full py-6 border-primary/50 shadow-sm shadow-primary/10 transition-all hover:shadow-md hover:shadow-primary/15"
           >
-            <SparklesIcon className="mr-2 h-5 w-5" /> Chat with Dyad help bot
+            <SparklesIcon className="mr-2 h-5 w-5" /> Chat with Bizsaas help bot
             (Pro)
           </Button>
         ) : (
@@ -486,7 +486,7 @@ ${formatLogsSection(debugInfo)}
             <div className="flex items-center gap-2">
               <MessageSquareIcon className="h-4 w-4 text-primary" />
               <span className="text-sm font-semibold">
-                AI / Dyad Pro issues
+                AI / Bizsaas Pro issues
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -517,7 +517,7 @@ ${formatLogsSection(debugInfo)}
               <span className="text-sm font-semibold">Non-AI issues</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Includes error logs to troubleshoot non-AI issues with Dyad (UI
+              Includes error logs to troubleshoot non-AI issues with Bizsaas (UI
               bugs, crashes, setup problems, etc.).
             </p>
             <Button
@@ -584,7 +584,7 @@ ${formatLogsSection(debugInfo)}
           </ReviewDetailsSection>
 
           <ReviewDetailsSection title="System Information" mono={false}>
-            <p>Dyad Version: {debugBundle.system.dyadVersion}</p>
+            <p>Bizsaas Version: {debugBundle.system.dyadVersion}</p>
             <p>Platform: {debugBundle.system.platform}</p>
             <p>Architecture: {debugBundle.system.architecture}</p>
             <p>
