@@ -615,7 +615,7 @@ Modern dark theme with purple accents for testing.
 
       if (!settings.enableDyadPro) {
         throw new Error(
-          "Dyad Pro is required for AI theme generation. Please enable Dyad Pro in Settings.",
+          "Bizsaas Pro is required for AI theme generation. Please enable Bizsaas Pro in Settings.",
         );
       }
 
@@ -768,7 +768,7 @@ Modern theme extracted from website for testing.
 
       if (!settings.enableDyadPro) {
         throw new Error(
-          "Dyad Pro is required for AI theme generation. Please enable Dyad Pro in Settings.",
+          "Bizsaas Pro is required for AI theme generation. Please enable Bizsaas Pro in Settings.",
         );
       }
 
@@ -836,7 +836,7 @@ Modern theme extracted from website for testing.
       // Get API key for Dyad Engine
       const apiKey = settings.providerSettings?.auto?.apiKey?.value;
       if (!apiKey) {
-        throw new DyadError("Dyad Pro API key is required", DyadErrorKind.Auth);
+        throw new DyadError("Bizsaas Pro API key is required", DyadErrorKind.Auth);
       }
 
       // Crawl the website

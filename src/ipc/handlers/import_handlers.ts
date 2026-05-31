@@ -53,7 +53,7 @@ export function registerImportHandlers() {
       _,
       { appName, skipCopy }: { appName: string; skipCopy?: boolean },
     ) => {
-      // Only check filesystem if we're copying to dyad-apps
+      // Only check filesystem if we're copying to bizsaas-apps
       if (!skipCopy) {
         const appPath = getDyadAppPath(appName);
         try {
@@ -106,7 +106,7 @@ export function registerImportHandlers() {
           );
         }
 
-        // Check if the app already exists in dyad-apps
+        // Check if the app already exists in bizsaas-apps
         const errorMessage = "An app with this name already exists";
         try {
           await fs.access(appPath);
@@ -116,7 +116,7 @@ export function registerImportHandlers() {
             throw error;
           }
         }
-        // Copy the app folder to the Dyad apps directory.
+        // Copy the app folder to the Bizsaas apps directory.
         // Why not use fs.cp? Because we want stable ordering for
         // tests.
         await copyDirectoryRecursive(sourcePath, appPath);
@@ -137,7 +137,7 @@ export function registerImportHandlers() {
         // Create initial commit
         await gitCommit({
           path: appPath,
-          message: "Init Dyad app",
+          message: "Init Bizsaas app",
         });
       }
 

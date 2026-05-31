@@ -98,7 +98,7 @@ const config: ForgeConfig = {
       : undefined,
     protocols: [
       {
-        name: "Dyad",
+        name: "Bizsaas",
         schemes: ["dyad"],
       },
     ],
