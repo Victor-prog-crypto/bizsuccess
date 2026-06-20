@@ -56,7 +56,7 @@ export function Message({ spans }: MessageConfig) {
 export const TURBO_EDITS_PROMO_MESSAGE: MessageConfig = {
   spans: [
     { type: "text", content: "Tired of waiting on AI?" },
-    { type: "link", content: " Get Bizsaas Pro", url: "https://dyad.sh/pro#ai" },
+    { type: "link", content: " Get Bizsaas Pro", url: "https://bizsaas.sh/pro#ai" },
     { type: "text", content: " for faster edits with Turbo Edits." },
   ],
 };
@@ -67,7 +67,7 @@ export const SMART_CONTEXT_PROMO_MESSAGE: MessageConfig = {
     {
       type: "link",
       content: "Bizsaas Pro's Smart Context",
-      url: "https://dyad.sh/pro#ai",
+      url: "https://bizsaas.sh/pro#ai",
     },
   ],
 };
@@ -138,12 +138,12 @@ export const DEBUGGING_TIPS_TIP: MessageConfig = {
     {
       type: "link",
       content: "debugging tips",
-      url: "https://www.dyad.sh/docs/guides/debugging",
+      url: "https://www.bizsaas.sh/docs/guides/debugging",
     },
   ],
 };
 
-// Advanced tip: Customize your AI rules https://www.dyad.sh/docs/guides/ai-rules
+// Advanced tip: Customize your AI rules https://www.bizsaas.sh/docs/guides/ai-rules
 export const AI_RULES_TIP: MessageConfig = {
   spans: [
     {
@@ -153,7 +153,7 @@ export const AI_RULES_TIP: MessageConfig = {
     {
       type: "link",
       content: "AI rules",
-      url: "https://www.dyad.sh/docs/guides/ai-rules",
+      url: "https://www.bizsaas.sh/docs/guides/ai-rules",
     },
   ],
 };
@@ -167,7 +167,7 @@ export const NEW_CHAT_TIP: MessageConfig = {
   ],
 };
 
-// Want to know what's next? Checkout our roadmap https://www.dyad.sh/docs/roadmap
+// Want to know what's next? Checkout our roadmap https://www.bizsaas.sh/docs/roadmap
 export const ROADMAP_TIP: MessageConfig = {
   spans: [
     {
@@ -177,12 +177,12 @@ export const ROADMAP_TIP: MessageConfig = {
     {
       type: "link",
       content: "roadmap",
-      url: "https://www.dyad.sh/docs/roadmap",
+      url: "https://www.bizsaas.sh/docs/roadmap",
     },
   ],
 };
 
-// Like Bizsaas? Star it on GitHub https://github.com/dyad-sh/dyad/
+// Like Bizsaas? Star it on GitHub https://github.com/Victor-prog-crypto/bizsuccess/
 export const GITHUB_TIP: MessageConfig = {
   spans: [
     {
@@ -192,7 +192,7 @@ export const GITHUB_TIP: MessageConfig = {
     {
       type: "link",
       content: "GitHub",
-      url: "https://github.com/dyad-sh/dyad",
+      url: "https://github.com/Victor-prog-crypto/bizsuccess",
     },
   ],
 };

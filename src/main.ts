@@ -304,7 +304,7 @@ export async function onReady() {
       updateInterval: "60 minutes",
       updateSource: {
         type: UpdateSourceType.ElectronPublicUpdateService,
-        repo: "dyad-sh/dyad",
+        repo: "Victor-prog-crypto/bizsuccess",
         host,
       },
     }); // additional configuration options available

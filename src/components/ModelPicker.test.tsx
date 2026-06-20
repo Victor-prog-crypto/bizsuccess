@@ -123,7 +123,7 @@ vi.mock("@/hooks/useLanguageModelProviders", () => ({
     data: [
       {
         id: "auto",
-        name: "Dyad",
+        name: "Bizsaas",
         type: "cloud",
       },
       {

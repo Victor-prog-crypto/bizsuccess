@@ -34,7 +34,7 @@ export function ChatErrorBox({
         {error}
         <span className="ml-1">
           <ExternalLink
-            href="https://dyad.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=free-quota-error"
+            href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=free-quota-error"
             variant="primary"
           >
             Access with Bizsaas Pro
@@ -62,13 +62,13 @@ export function ChatErrorBox({
         {error}
         <div className="mt-2 space-y-2 space-x-2">
           <ExternalLink
-            href="https://dyad.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=rate-limit-error"
+            href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=rate-limit-error"
             variant="primary"
           >
             Upgrade to Bizsaas Pro
           </ExternalLink>
 
-          <ExternalLink href="https://dyad.sh/docs/help/ai-rate-limit">
+          <ExternalLink href="https://bizsaas.sh/docs/help/ai-rate-limit">
             Troubleshooting guide
           </ExternalLink>
         </div>
@@ -82,7 +82,7 @@ export function ChatErrorBox({
         <span>
           Looks like you don't have a valid Bizsaas Pro key.{" "}
           <ExternalLink
-            href="https://dyad.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=invalid-pro-key-error"
+            href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=invalid-pro-key-error"
             variant="primary"
           >
             Upgrade to Bizsaas Pro
@@ -112,7 +112,7 @@ export function ChatErrorBox({
   //
   // We are matching "Fallbacks=[{" and not just "Fallbacks=" because the fallback
   // model itself can error and we want to include the fallback model error in the error message.
-  // Example: https://github.com/dyad-sh/dyad/issues/1849#issuecomment-3590685911
+  // Example: https://github.com/Victor-prog-crypto/bizsuccess/issues/1849#issuecomment-3590685911
   const fallbackPrefix = "Fallbacks=[{";
   if (error.includes(fallbackPrefix)) {
     error = error.split(fallbackPrefix)[0];
@@ -125,7 +125,7 @@ export function ChatErrorBox({
         upgrade to Bizsaas Pro for unlimited access or switch to Build mode.
         <div className="mt-2 space-y-2 space-x-2">
           <ExternalLink
-            href="https://dyad.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=free-agent-quota-exceeded"
+            href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=free-agent-quota-exceeded"
             variant="primary"
           >
             Upgrade to Bizsaas Pro
@@ -143,7 +143,7 @@ export function ChatErrorBox({
           error.includes(AI_STREAMING_ERROR_MESSAGE_PREFIX) &&
           !error.includes("TypeError: terminated") && (
             <ExternalLink
-              href="https://dyad.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=general-error"
+              href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=general-error"
               variant="primary"
             >
               Upgrade to Bizsaas Pro
@@ -163,7 +163,7 @@ export function ChatErrorBox({
             </TooltipContent>
           </Tooltip>
         )}
-        <ExternalLink href="https://www.dyad.sh/docs/faq">
+        <ExternalLink href="https://www.bizsaas.sh/docs/faq">
           Read docs
         </ExternalLink>
       </div>

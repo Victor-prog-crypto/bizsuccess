@@ -21,7 +21,7 @@ export function DyadProTrialDialog({
 
   const handleLearnMore = () => {
     ipc.system.openExternalUrl(
-      "https://www.dyad.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=setup-dialog-v2",
+      "https://www.bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=setup-dialog-v2",
     );
   };
 
