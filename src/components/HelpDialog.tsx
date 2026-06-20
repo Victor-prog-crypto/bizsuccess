@@ -69,7 +69,7 @@ const screenTransition = {
 // =============================================================================
 
 const GITHUB_ISSUES_BASE =
-  "https://github.com/dyad-sh/dyad/issues/new" as const;
+  "https://github.com/Victor-prog-crypto/bizsuccess/issues/new" as const;
 
 function formatSettingsLines(settings: UserSettings | null): string {
   if (!settings) return "Settings not available";
@@ -462,7 +462,7 @@ ${formatLogsSection(debugInfo)}
           <Button
             variant="outline"
             onClick={() =>
-              ipc.system.openExternalUrl("https://www.dyad.sh/docs")
+              ipc.system.openExternalUrl("https://www.bizsaas.sh/docs")
             }
             className="w-full py-6 bg-(--background-lightest)"
           >

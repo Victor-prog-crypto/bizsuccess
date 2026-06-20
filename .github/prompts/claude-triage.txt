@@ -107,7 +107,7 @@ Write `{{TRIAGE_OUTPUT_PATH}}` as JSON with this exact shape:
       "description": "Contains the same error message in the same flow",
       "confidence": "high",
       "helpfulSuggestion": "Try reconnecting your account",
-      "helpfulCommentUrl": "https://github.com/dyad-sh/dyad/issues/123#issuecomment-123"
+      "helpfulCommentUrl": "https://github.com/Victor-prog-crypto/bizsuccess/issues/123#issuecomment-123"
     }
   ],
   "title": null
