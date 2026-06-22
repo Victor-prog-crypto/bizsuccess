@@ -34,7 +34,7 @@ export function ChatErrorBox({
         {error}
         <span className="ml-1">
           <ExternalLink
-            href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=free-quota-error"
+            href="https://www.bizsaas.sh/pro"
             variant="primary"
           >
             Access with Bizsaas Pro
@@ -62,7 +62,7 @@ export function ChatErrorBox({
         {error}
         <div className="mt-2 space-y-2 space-x-2">
           <ExternalLink
-            href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=rate-limit-error"
+            href="https://www.bizsaas.sh/pro"
             variant="primary"
           >
             Upgrade to Bizsaas Pro
@@ -82,7 +82,7 @@ export function ChatErrorBox({
         <span>
           Looks like you don't have a valid Bizsaas Pro key.{" "}
           <ExternalLink
-            href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=invalid-pro-key-error"
+            href="https://www.bizsaas.sh/pro"
             variant="primary"
           >
             Upgrade to Bizsaas Pro
@@ -98,12 +98,12 @@ export function ChatErrorBox({
         <span>
           You have used all of your Bizsaas AI credits this month.{" "}
           <ExternalLink
-            href="https://academy.dyad.sh/subscription?utm_source=dyad-app&utm_medium=app&utm_campaign=exceeded-budget-error"
+            href="https://www.bizsaas.sh/pro"
             variant="primary"
           >
-            Reload or upgrade your subscription
+            Bizsaas Pro is coming soon
           </ExternalLink>{" "}
-          and get more AI credits
+          with more AI credits
         </span>
       </ChatInfoContainer>
     );
@@ -125,7 +125,7 @@ export function ChatErrorBox({
         upgrade to Bizsaas Pro for unlimited access or switch to Build mode.
         <div className="mt-2 space-y-2 space-x-2">
           <ExternalLink
-            href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=free-agent-quota-exceeded"
+            href="https://www.bizsaas.sh/pro"
             variant="primary"
           >
             Upgrade to Bizsaas Pro
@@ -143,7 +143,7 @@ export function ChatErrorBox({
           error.includes(AI_STREAMING_ERROR_MESSAGE_PREFIX) &&
           !error.includes("TypeError: terminated") && (
             <ExternalLink
-              href="https://bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=general-error"
+              href="https://www.bizsaas.sh/pro"
               variant="primary"
             >
               Upgrade to Bizsaas Pro

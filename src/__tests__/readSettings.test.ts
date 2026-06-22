@@ -85,7 +85,7 @@ describe("readSettings", () => {
         {
           "autoExpandPreviewPanel": true,
           "enableAutoFixProblems": false,
-          "enableAutoUpdate": true,
+          "enableAutoUpdate": false,
           "enableContextCompaction": true,
           "enableNativeGit": true,
           "enableProLazyEditsMode": true,
@@ -139,7 +139,7 @@ describe("readSettings", () => {
       expect(result.hasRunBefore).toBe(true);
       // Should still have defaults for missing properties
       expect(result.blockUnsafeNpmPackages).toBeUndefined();
-      expect(result.enableAutoUpdate).toBe(true);
+      expect(result.enableAutoUpdate).toBe(false);
       expect(result.releaseChannel).toBe("stable");
     });
 
@@ -460,7 +460,7 @@ describe("readSettings", () => {
       });
 
       // Should still have defaults for missing properties
-      expect(result.enableAutoUpdate).toBe(true);
+      expect(result.enableAutoUpdate).toBe(false);
       expect(result.releaseChannel).toBe("stable");
     });
   });
@@ -478,7 +478,7 @@ describe("readSettings", () => {
         {
           "autoExpandPreviewPanel": true,
           "enableAutoFixProblems": false,
-          "enableAutoUpdate": true,
+          "enableAutoUpdate": false,
           "enableContextCompaction": true,
           "enableNativeGit": true,
           "enableProLazyEditsMode": true,
