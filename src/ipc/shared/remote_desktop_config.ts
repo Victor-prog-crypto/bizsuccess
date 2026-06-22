@@ -33,7 +33,7 @@ function getRemoteDesktopConfigUrl() {
     return process.env.DYAD_DESKTOP_CONFIG_URL;
   }
 
-  return "https://api.dyad.sh/v1/desktop-config";
+  return "https://getdesktopconfig-5vzzow4r4q-uc.a.run.app";
 }
 
 async function fetchRemoteDesktopConfig(): Promise<RemoteDesktopConfig | null> {
