@@ -24,6 +24,7 @@ const handle = createLoggedHandler(logger);
 const typedHandle = createLoggedTypedHandler(logger);
 
 const dyadEngineUrl = process.env.DYAD_ENGINE_URL;
+const userLicenseUrl = "https://getuserlicense-5vzzow4r4q-uc.a.run.app";
 
 export function registerProHandlers() {
   // This method should try to avoid throwing errors because this is auxiliary
@@ -52,7 +53,7 @@ export function registerProHandlers() {
       return null;
     }
 
-    const url = "https://api.dyad.sh/v1/user/info";
+    const url = userLicenseUrl;
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`,
