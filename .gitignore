@@ -116,3 +116,6 @@ storybook-static/
 
 # Eval framework — run results
 eval-results/
+
+# Local release installers for Firebase Hosting deploy
+landing/downloads/*.exe
