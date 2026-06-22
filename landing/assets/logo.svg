@@ -1,0 +1,12 @@
+<svg width="262" height="262" viewBox="0 0 262 262" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bizsaas logo">
+  <rect width="262" height="262" rx="64" fill="url(#paint0_radial)" />
+  <path d="M76 58h71.5c30.1 0 51.5 17.1 51.5 43.5 0 15.5-7.7 28.3-21.1 35.6 18.8 6.5 30.1 20.9 30.1 41.1 0 29.2-23.7 47.8-58.9 47.8H76V58Zm65.8 67.1c15.4 0 24.9-7.3 24.9-19.5s-9.5-19.3-24.9-19.3h-33.5v38.8h33.5Zm4.8 72.6c17.9 0 28.4-8.3 28.4-22.4s-10.5-22.3-28.4-22.3h-38.3v44.7h38.3Z" fill="white" />
+  <path d="M58 229c42-22 82-27 126-6" stroke="white" stroke-opacity="0.45" stroke-width="14" stroke-linecap="round" />
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(54 31) rotate(47) scale(278)">
+      <stop offset="0" stop-color="#06B6D4" />
+      <stop offset="0.45" stop-color="#653BFF" />
+      <stop offset="1" stop-color="#100C30" />
+    </radialGradient>
+  </defs>
+</svg>
