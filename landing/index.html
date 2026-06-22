@@ -5,60 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Bizsaas is a local-first AI app builder for creating, editing, and running web apps from your desktop."
+      content="Bizsaas v0.1 is a local-first AI app builder for creating and iterating on web apps from your desktop."
     />
-    <title>Bizsaas — Local-first AI app builder</title>
-    <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles.css" />
+    <title>Bizsaas v0.1 — Local-first AI app builder</title>
+    <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="page-shell">
+    <div class="background-glow" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Bizsaas home">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-text">Bizsaas</span>
+        <span class="version-pill">v0.1</span>
+      </a>
+      <a class="header-link" href="https://github.com/Victor-prog-crypto/bizsuccess">GitHub</a>
+    </header>
+
+    <main>
       <section class="hero" aria-labelledby="hero-title">
-        <nav class="nav" aria-label="Primary navigation">
-          <a class="brand" href="/" aria-label="Bizsaas home">
-            <img src="/assets/logo.svg" alt="" class="brand-logo" />
-            <span>Bizsaas</span>
+        <p class="eyebrow">Local-first desktop app builder</p>
+        <h1 id="hero-title">Build, edit, and run web apps from your desktop.</h1>
+        <p class="hero-description">
+          Bizsaas is a local-first AI app builder that helps you create and iterate on web apps on
+          your own machine.
+        </p>
+        <div class="hero-actions" aria-label="Primary links">
+          <a
+            class="button button-primary"
+            href="https://github.com/Victor-prog-crypto/bizsuccess/releases/latest/download/Bizsaas-Setup-1.0.0.exe"
+          >
+            Download for Windows
           </a>
-          <a class="nav-link" href="https://github.com/Victor-prog-crypto/bizsuccess">GitHub</a>
-        </nav>
+          <a class="button button-secondary" href="https://github.com/Victor-prog-crypto/bizsuccess">
+            View on GitHub
+          </a>
+        </div>
+      </section>
 
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Desktop AI app builder · v0.1</p>
-            <h1 id="hero-title">Build, edit, and run web apps from your desktop.</h1>
-            <p class="hero-description">
-              Bizsaas is a local-first AI app builder that helps you create and iterate on web apps on your own machine. Download the Windows desktop app and start building with your preferred AI provider.
-            </p>
-            <div class="hero-actions" aria-label="Download and source links">
-              <a
-                class="button button-primary"
-                href="https://github.com/Victor-prog-crypto/bizsuccess/releases/latest/download/Bizsaas-Setup-1.0.0.exe"
-              >
-                Download for Windows
-              </a>
-              <a class="button button-secondary" href="https://github.com/Victor-prog-crypto/bizsuccess">
-                View on GitHub
-              </a>
-            </div>
-            <p class="supporting-note">Windows installer available now. Bizsaas Pro is coming soon.</p>
+      <section class="showcase" aria-label="Bizsaas workflow preview">
+        <div class="app-window">
+          <div class="window-bar" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-
-          <div class="hero-card" aria-label="Bizsaas desktop app highlights">
-            <div class="window-controls" aria-hidden="true">
-              <span></span><span></span><span></span>
+          <div class="window-content">
+            <div class="prompt-panel">
+              <span>Prompt</span>
+              <p>Create a polished customer dashboard with sign-in, charts, and responsive cards.</p>
             </div>
-            <div class="prompt-card">
-              <span class="prompt-label">Prompt</span>
-              <p>Create a dashboard for tracking SaaS customer health.</p>
-            </div>
-            <div class="status-row">
-              <span>Generating app files</span>
-              <strong>Local workspace</strong>
-            </div>
-            <div class="preview-pane">
-              <div></div>
-              <div></div>
-              <div></div>
+            <div class="workflow-steps">
+              <div>
+                <strong>1</strong>
+                Generate files
+              </div>
+              <div>
+                <strong>2</strong>
+                Edit locally
+              </div>
+              <div>
+                <strong>3</strong>
+                Preview changes
+              </div>
             </div>
           </div>
         </div>
@@ -66,43 +76,48 @@
 
       <section class="features" aria-labelledby="features-title">
         <div class="section-heading">
-          <p class="eyebrow">What you can do today</p>
-          <h2 id="features-title">A focused desktop workflow for early builders.</h2>
+          <p class="eyebrow">What v0.1 focuses on</p>
+          <h2 id="features-title">A simple desktop workflow for building locally.</h2>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
-            <h3>Build locally</h3>
-            <p>Keep your projects on your machine while using Bizsaas to scaffold and refine your web app.</p>
+            <div class="feature-icon" aria-hidden="true">⌂</div>
+            <h3>Local-first workspace</h3>
+            <p>Keep projects on your machine while Bizsaas helps you create, update, and inspect app files.</p>
           </article>
           <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">✦</div>
             <h3>Bring your own AI key</h3>
-            <p>Connect your preferred AI provider and stay in control of the model access you use.</p>
+            <p>Use your own provider access so you stay in control of the AI setup that powers your workflow.</p>
           </article>
           <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">✎</div>
             <h3>Generate and edit apps</h3>
-            <p>Turn ideas into app files, then continue editing and iterating from the same desktop workflow.</p>
+            <p>Start from a prompt, then keep refining generated code and content from the desktop app.</p>
           </article>
           <article class="feature-card">
-            <h3>Preview your project</h3>
-            <p>Run and inspect your project locally so you can quickly see what changed.</p>
+            <div class="feature-icon" aria-hidden="true">▶</div>
+            <h3>Live preview workflow</h3>
+            <p>Run your app locally and review changes quickly as you iterate toward the experience you want.</p>
           </article>
         </div>
       </section>
 
-      <section class="note" aria-labelledby="note-title">
+      <section class="release-note" aria-labelledby="release-note-title">
         <div>
-          <p class="eyebrow">v0.1 note</p>
-          <h2 id="note-title">Early, local-first, and intentionally simple.</h2>
+          <p class="eyebrow">Release note</p>
+          <h2 id="release-note-title">Bizsaas v0.1</h2>
         </div>
         <p>
-          This first Bizsaas release focuses on a downloadable Windows desktop app for local app creation and iteration. More capabilities are planned, but v0.1 is designed to stay lightweight and clear.
+          Bizsaas v0.1 is an early local-first Windows desktop release. Bizsaas Pro and cloud
+          features are coming later.
         </p>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="site-footer">
       <span>© 2026 Bizsaas</span>
-      <a href="https://github.com/Victor-prog-crypto/bizsuccess">GitHub</a>
+      <a href="https://github.com/Victor-prog-crypto/bizsuccess">View on GitHub</a>
     </footer>
   </body>
 </html>
