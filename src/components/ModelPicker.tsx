@@ -408,9 +408,7 @@ export function ModelPicker() {
                 size="sm"
                 className="cursor-pointer w-full bg-indigo-600 hover:bg-indigo-700 text-white hover:text-white border-indigo-600"
                 onClick={() => {
-                  ipc.system.openExternalUrl(
-                    "https://academy.dyad.sh/subscription",
-                  );
+                  ipc.system.openExternalUrl("https://www.bizsaas.sh/pro");
                   setOpen(false);
                 }}
               >

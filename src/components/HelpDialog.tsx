@@ -30,7 +30,6 @@ import {
 import { useAtomValue } from "jotai";
 import { selectedChatIdAtom } from "@/atoms/chatAtoms";
 import { type SessionDebugBundle, type SystemDebugInfo } from "@/ipc/types";
-import { showError } from "@/lib/toast";
 import { HelpBotDialog } from "./HelpBotDialog";
 import { useSettings } from "@/hooks/useSettings";
 import { BugScreenshotDialog } from "./BugScreenshotDialog";
@@ -349,37 +348,9 @@ ${formatLogsSection(debugInfo)}
 
   const handleSubmitChatLogs = async () => {
     if (!debugBundle) return;
-    setIsUploading(true);
-    try {
-      const response = await fetch(
-        "https://upload-logs.dyad.sh/generate-upload-url",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            extension: "json",
-            contentType: "application/json",
-          }),
-        },
-      );
-      if (!response.ok) {
-        showError(`Failed to get upload URL: ${response.statusText}`);
-        throw new Error(`Failed to get upload URL: ${response.statusText}`);
-      }
-      const { uploadUrl, filename } = await response.json();
-      await ipc.system.uploadToSignedUrl({
-        url: uploadUrl,
-        contentType: "application/json",
-        data: debugBundle,
-      });
-      setSessionId("v2:" + filename.replace(".json", ""));
-      navigateTo("upload-complete");
-    } catch (error) {
-      console.error("Failed to upload chat logs:", error);
-      alert("Failed to upload chat logs. Please try again.");
-    } finally {
-      setIsUploading(false);
-    }
+    alert(
+      "Automatic Bizsaas log upload is coming soon. Please copy the reviewed debug details and attach them manually to a GitHub issue.",
+    );
   };
 
   const handleCancelReview = () => {
@@ -490,8 +461,9 @@ ${formatLogsSection(debugInfo)}
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Best for AI quality issues. Uploads your chat session and code for
-              the team to reproduce and fix the problem.
+              Best for AI quality issues. Automatic upload is disabled for
+              Bizsaas v0.1; review the debug bundle and attach details manually
+              to a GitHub issue.
             </p>
             <Button
               variant="outline"
@@ -500,12 +472,12 @@ ${formatLogsSection(debugInfo)}
               className="w-full bg-(--background-lightest)"
             >
               <UploadIcon className="mr-2 h-4 w-4" />{" "}
-              {isUploading ? "Preparing Upload..." : "Upload Chat Session"}
+              {isUploading ? "Preparing Details..." : "Review Chat Session"}
             </Button>
             {!selectedChatId && (
               <p className="text-xs text-amber-600 dark:text-amber-400 flex items-center gap-1.5">
                 <AlertCircleIcon className="h-3 w-3 shrink-0" />
-                Open a chat first to upload a session.
+                Open a chat first to review a session.
               </p>
             )}
           </div>
@@ -554,13 +526,12 @@ ${formatLogsSection(debugInfo)}
             >
               <ChevronLeftIcon className="h-4 w-4" />
             </Button>
-            OK to upload chat session?
+            Review chat session details
           </DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          Please review the information that will be submitted. Your chat
-          messages, system information, and a snapshot of your codebase will be
-          included.
+          Automatic upload is disabled for Bizsaas v0.1. Review these details
+          and attach relevant information manually to a GitHub issue.
         </DialogDescription>
 
         <div className="space-y-2 overflow-y-auto flex-grow mt-4">
@@ -621,7 +592,7 @@ ${formatLogsSection(debugInfo)}
               "Uploading..."
             ) : (
               <>
-                <CheckIcon className="mr-2 h-4 w-4" /> Upload
+                <CheckIcon className="mr-2 h-4 w-4" /> Manual attach required
               </>
             )}
           </Button>

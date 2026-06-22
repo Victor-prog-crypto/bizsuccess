@@ -99,6 +99,9 @@ const config: ForgeConfig = {
     protocols: [
       {
         name: "Bizsaas",
+        // TODO(bizsaas-v0.1): migrate this public scheme to "bizsaas" once
+        // the existing Dyad-backed OAuth/subscription return URLs can be
+        // updated without breaking integrations that still redirect to dyad://.
         schemes: ["dyad"],
       },
     ],
@@ -142,12 +145,12 @@ const config: ForgeConfig = {
         ? {
             windowsSign,
             iconUrl:
-              "https://raw.githubusercontent.com/dyad-sh/dyad/main/assets/icon/logo.ico",
+              "https://raw.githubusercontent.com/Victor-prog-crypto/bizsuccess/main/assets/icon/logo.ico",
             setupIcon: "./assets/icon/logo.ico",
           }
         : {
             iconUrl:
-              "https://raw.githubusercontent.com/dyad-sh/dyad/main/assets/icon/logo.ico",
+              "https://raw.githubusercontent.com/Victor-prog-crypto/bizsuccess/main/assets/icon/logo.ico",
             setupIcon: "./assets/icon/logo.ico",
           },
     ),
