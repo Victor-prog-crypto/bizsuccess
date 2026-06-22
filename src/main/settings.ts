@@ -43,7 +43,8 @@ const DEFAULT_SETTINGS: UserSettings = {
   enableProSmartFilesContextMode: true,
   selectedChatMode: "build",
   enableAutoFixProblems: false,
-  enableAutoUpdate: true,
+  // Disabled for Bizsaas v0.1 until a Bizsaas-owned update feed is available.
+  enableAutoUpdate: false,
   releaseChannel: "stable",
   selectedTemplateId: DEFAULT_TEMPLATE_ID,
   selectedThemeId: DEFAULT_THEME_ID,

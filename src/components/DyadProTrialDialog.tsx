@@ -13,16 +13,12 @@ export function DyadProTrialDialog({
   onClose,
 }: DyadProTrialDialogProps) {
   const handleStartTrial = () => {
-    ipc.system.openExternalUrl(
-      "https://academy.dyad.sh/redirect-to-checkout?trialCode=1PRO30&utm_source=dyad-app&utm_medium=app&utm_campaign=setup-dialog-v2",
-    );
+    ipc.system.openExternalUrl("https://www.bizsaas.sh/pro");
     onClose();
   };
 
   const handleLearnMore = () => {
-    ipc.system.openExternalUrl(
-      "https://www.bizsaas.sh/pro?utm_source=dyad-app&utm_medium=app&utm_campaign=setup-dialog-v2",
-    );
+    ipc.system.openExternalUrl("https://www.bizsaas.sh/pro");
   };
 
   const features = [
@@ -92,7 +88,7 @@ export function DyadProTrialDialog({
               className="w-full bg-violet-600 py-5 text-base font-semibold text-white shadow-lg shadow-violet-500/30 transition-all hover:bg-violet-500 hover:shadow-xl hover:shadow-violet-500/40 active:scale-[0.98]"
             >
               <Sparkles className="mr-2 h-4 w-4" />
-              Start Free Trial
+              Bizsaas Pro coming soon
             </Button>
             <Button
               variant="ghost"

@@ -580,7 +580,7 @@ export const CLOUD_PROVIDERS: Record<
   },
   auto: {
     displayName: "Bizsaas",
-    websiteUrl: "https://academy.dyad.sh/subscription",
+    websiteUrl: "https://www.bizsaas.sh/pro",
     gatewayPrefix: "dyad/",
   },
   azure: {

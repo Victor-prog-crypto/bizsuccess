@@ -293,6 +293,9 @@ export async function onReady() {
 
   logger.info("Auto-update enabled=", settings.enableAutoUpdate);
   if (settings.enableAutoUpdate) {
+    logger.warn(
+      "Auto-update uses the legacy Dyad update feed until a Bizsaas-owned feed is available.",
+    );
     // Technically we could just pass the releaseChannel directly to the host,
     // but this is more explicit and falls back to stable if there's an unknown
     // release channel.
@@ -728,7 +731,7 @@ async function handleDeepLinkReturn(url: string) {
   if (parsed.protocol !== "dyad:") {
     dialog.showErrorBox(
       "Invalid Protocol",
-      `Expected dyad://, got ${parsed.protocol}. Full URL: ${url}`,
+      `Expected a Bizsaas deep link using the current compatibility scheme, got ${parsed.protocol}. Full URL: ${url}`,
     );
     return;
   }

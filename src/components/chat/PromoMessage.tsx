@@ -86,12 +86,12 @@ export const REDDIT_TIP: MessageConfig = {
   spans: [
     {
       type: "text",
-      content: "Join 600+ builders in the ",
+      content: "Follow Bizsaas development on ",
     },
     {
       type: "link",
-      content: "Bizsaas subreddit",
-      url: "https://www.reddit.com/r/dyadbuilders/",
+      content: "GitHub",
+      url: "https://github.com/Victor-prog-crypto/bizsuccess",
     },
   ],
 };
