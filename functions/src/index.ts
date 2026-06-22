@@ -16,6 +16,7 @@ type JsonResponse = {
 
 const HTTPS_OPTIONS = {
   cors: true,
+  invoker: "public",
 } as const;
 
 function sendReadOnlyJson(response: JsonResponse, body: HandlerBody) {
