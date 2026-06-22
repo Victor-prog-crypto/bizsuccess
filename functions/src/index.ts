@@ -125,6 +125,13 @@ export const getUserLicense = onRequest(
           cloudSandbox: false,
           logUpload: false,
         },
+        // Temporary compatibility placeholders for the desktop app budget shape.
+        // These values must not be used for paid-license enforcement.
+        usedCredits: 0,
+        totalCredits: 0,
+        budgetResetDate: null,
+        redactedUserId: "anonymous",
+        isTrial: false,
         auth: {
           required: false,
           provided: Boolean(authorizationHeader),
