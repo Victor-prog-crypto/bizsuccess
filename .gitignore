@@ -119,3 +119,6 @@ eval-results/
 
 # Local release installers for Firebase Hosting deploy
 landing/downloads/*.exe
+
+# Firebase local deploy cache
+.firebase/
