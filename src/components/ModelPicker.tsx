@@ -1,5 +1,4 @@
 import { isDyadProEnabled, type LargeLanguageModel } from "@/lib/schemas";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,11 +35,6 @@ const SCROLL_AREA_CLASS = "max-h-100 overflow-y-auto scrollbar-on-hover";
 
 const PILL_CLASS =
   "text-[10px] leading-none px-1.5 py-1 rounded-full font-medium";
-
-const PRO_PILL_CLASS = cn(
-  PILL_CLASS,
-  "bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-600 bg-[length:200%_100%] animate-[shimmer_5s_ease-in-out_infinite] text-white",
-);
 
 type Tier = { label: string; caption: string; min: number; max: number };
 const PRO_PRICE_TIERS: Tier[] = [
@@ -350,9 +344,6 @@ export function ModelPicker() {
           <div className="flex flex-col items-start w-full">
             <div className="flex items-center gap-2">
               <span>{providerDisplayName}</span>
-              {provider?.type === "cloud" &&
-                !provider?.secondary &&
-                dyadProEnabled && <span className={PRO_PILL_CLASS}>Pro</span>}
               {provider?.type === "custom" && (
                 <span className={cn(PILL_CLASS, "bg-amber-500 text-white")}>
                   Custom
@@ -396,39 +387,20 @@ export function ModelPicker() {
         </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-[17rem]" align="start">
-        {/* Trial user upgrade banner */}
+        {/* Trial users only see the auto model, without Pro upsell UI. */}
         {isTrial && (
-          <>
-            <div className="px-2 py-3 bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-indigo-950/50 dark:to-sky-950/50">
-              <p className="text-sm text-indigo-700 dark:text-indigo-300 mb-2">
-                Bizsaas Pro is coming soon.
-              </p>
-              <Button variant="outline" size="sm" className="w-full" disabled>
-                Bizsaas Pro coming soon
-              </Button>
+          <DropdownMenuItem
+            className="relative py-2 bg-primary/8 before:absolute before:inset-y-1.5 before:left-0 before:w-[3px] before:rounded-r-full before:bg-primary"
+            onClick={() => {
+              onModelSelect({ name: "auto", provider: "auto" });
+              setOpen(false);
+            }}
+          >
+            <div className="flex justify-between items-center w-full gap-2">
+              <span className="text-[13px]">Auto</span>
+              <CheckIcon className="size-3.5 text-primary shrink-0" />
             </div>
-            <DropdownMenuSeparator />
-            {/* Trial users only see the auto model */}
-            <DropdownMenuItem
-              className="relative py-2 bg-primary/8 before:absolute before:inset-y-1.5 before:left-0 before:w-[3px] before:rounded-r-full before:bg-primary"
-              onClick={() => {
-                onModelSelect({ name: "auto", provider: "auto" });
-                setOpen(false);
-              }}
-            >
-              <div className="flex justify-between items-center w-full gap-2">
-                <span className="text-[13px]">Auto</span>
-                <span className="flex items-center gap-1.5">
-                  <span
-                    className={cn(PILL_CLASS, "bg-primary/10 text-primary")}
-                  >
-                    Trial
-                  </span>
-                  <CheckIcon className="size-3.5 text-primary shrink-0" />
-                </span>
-              </div>
-            </DropdownMenuItem>
-          </>
+          </DropdownMenuItem>
         )}
 
         {/* Cloud models - only show for non-trial users */}

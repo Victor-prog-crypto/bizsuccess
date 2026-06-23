@@ -3,9 +3,6 @@ import {
   StopCircleIcon,
   FolderOpenIcon,
   XIcon,
-  Mic,
-  MicOff,
-  Loader2,
 } from "lucide-react";
 import {
   Tooltip,
@@ -32,11 +29,8 @@ import { AuxiliaryActionsMenu } from "./AuxiliaryActionsMenu";
 import { cn } from "@/lib/utils";
 import { useLoadApps } from "@/hooks/useLoadApps";
 import { AppSearchDialog } from "../AppSearchDialog";
-import { useVoiceToText } from "@/hooks/useVoiceToText";
-import { useUserBudgetInfo } from "@/hooks/useUserBudgetInfo";
 import { ipc } from "@/ipc/types";
-import { useCallback, useEffect } from "react";
-import { showError } from "@/lib/toast";
+import { useEffect } from "react";
 
 export function HomeChatInput({
   onSubmit,
@@ -51,22 +45,6 @@ export function HomeChatInput({
     hasChatId: false,
   }); // eslint-disable-line @typescript-eslint/no-unused-vars
   useChatModeToggle();
-  const { userBudget } = useUserBudgetInfo();
-  const isProEnabled = !!userBudget && !!settings?.enableDyadPro;
-
-  const handleTranscription = useCallback(
-    (text: string) => {
-      setInputValue((prev: string) => (prev.trim() ? prev + " " + text : text));
-    },
-    [setInputValue],
-  );
-
-  const { isRecording, isTranscribing, toggleRecording } = useVoiceToText({
-    enabled: isProEnabled,
-    onTranscription: handleTranscription,
-    onError: (message) => showError(message),
-  });
-
   const [appSearchOpen, setAppSearchOpen] = useState(false);
   const { apps } = useLoadApps();
 
@@ -120,9 +98,6 @@ export function HomeChatInput({
       return;
     }
 
-    if (isRecording) {
-      await toggleRecording();
-    }
 
     // Call the parent's onSubmit handler with attachments and selected app
     onSubmit({
@@ -185,48 +160,6 @@ export function HomeChatInput({
               disableSendButton={false}
               messageHistory={[]}
             />
-
-            {/* Voice-to-text button */}
-            {isProEnabled ? (
-              <Tooltip>
-                <TooltipTrigger
-                  render={
-                    <button
-                      onClick={toggleRecording}
-                      disabled={isTranscribing}
-                      aria-label={
-                        isRecording
-                          ? "Stop recording"
-                          : isTranscribing
-                            ? "Transcribing..."
-                            : "Voice to text"
-                      }
-                      className={cn(
-                        "px-2 py-2 mb-0.5 text-muted-foreground rounded-lg transition-colors duration-150 cursor-pointer disabled:cursor-default disabled:opacity-30",
-                        isRecording &&
-                          "text-red-500 hover:text-red-600 animate-pulse",
-                        !isRecording && !isTranscribing && "hover:text-primary",
-                      )}
-                    />
-                  }
-                >
-                  {isTranscribing ? (
-                    <Loader2 size={20} className="animate-spin" />
-                  ) : isRecording ? (
-                    <MicOff size={20} />
-                  ) : (
-                    <Mic size={20} />
-                  )}
-                </TooltipTrigger>
-                <TooltipContent>
-                  {isRecording
-                    ? "Stop recording"
-                    : isTranscribing
-                      ? "Transcribing..."
-                      : "Voice to text"}
-                </TooltipContent>
-              </Tooltip>
-            ) : null}
 
             {isStreaming ? (
               <Tooltip>

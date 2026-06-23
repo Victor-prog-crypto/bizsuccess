@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { chatInputValueAtom } from "@/atoms/chatAtoms";
 import { useAtom } from "jotai";
-import { useSettings } from "@/hooks/useSettings";
 
 interface TokenBarProps {
   chatId?: number;
@@ -23,7 +22,6 @@ interface TokenBarProps {
 
 export function TokenBar({ chatId }: TokenBarProps) {
   const [inputValue] = useAtom(chatInputValueAtom);
-  const { settings } = useSettings();
   const { result, error } = useCountTokens(chatId ?? null, inputValue);
 
   if (!chatId || !result) {
@@ -127,12 +125,6 @@ export function TokenBar({ chatId }: TokenBarProps) {
       </TooltipProvider>
       {error && (
         <div className="text-red-500 text-xs mt-1">Failed to count tokens</div>
-      )}
-      {(!settings?.enableProSmartFilesContextMode ||
-        !settings?.enableDyadPro) && (
-        <div className="text-xs text-center text-muted-foreground mt-2">
-          Bizsaas Pro Smart Context is coming soon.
-        </div>
       )}
     </div>
   );
