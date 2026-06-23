@@ -19,7 +19,6 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { useSettings } from "@/hooks/useSettings";
-import { ipc } from "@/ipc/types";
 import { hasDyadProKey, type UserSettings } from "@/lib/schemas";
 
 export function ProModeSelector() {
@@ -90,15 +89,9 @@ export function ProModeSelector() {
           </div>
           {!hasProKey && (
             <div className="text-sm text-center text-muted-foreground">
-              <a
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-3 py-2 text-sm font-medium text-primary shadow-sm transition-colors hover:bg-primary/20 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring cursor-pointer"
-                onClick={() => {
-                  ipc.system.openExternalUrl("https://bizsaas.sh/pro#ai");
-                }}
-                title="Visit bizsaas.sh/pro to unlock Pro features"
-              >
-                Unlock Pro modes
-              </a>
+              <span className="inline-flex items-center justify-center gap-2 rounded-md border border-primary/20 bg-muted px-3 py-2 text-sm font-medium text-muted-foreground">
+                Bizsaas Pro coming soon
+              </span>
             </div>
           )}
           <div className="flex flex-col gap-3">

@@ -16,7 +16,7 @@ import { useLocalModels } from "@/hooks/useLocalModels";
 import { useLocalLMSModels } from "@/hooks/useLMStudioModels";
 import { useLanguageModelsByProviders } from "@/hooks/useLanguageModelsByProviders";
 
-import { ipc, type LanguageModel, LocalModel } from "@/ipc/types";
+import { type LanguageModel, LocalModel } from "@/ipc/types";
 import { useLanguageModelProviders } from "@/hooks/useLanguageModelProviders";
 import { useSettings } from "@/hooks/useSettings";
 import { PriceBadge } from "@/components/PriceBadge";
@@ -401,18 +401,10 @@ export function ModelPicker() {
           <>
             <div className="px-2 py-3 bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-indigo-950/50 dark:to-sky-950/50">
               <p className="text-sm text-indigo-700 dark:text-indigo-300 mb-2">
-                Upgrade from Bizsaas Pro trial to unlock more models.
+                Bizsaas Pro is coming soon.
               </p>
-              <Button
-                variant="outline"
-                size="sm"
-                className="cursor-pointer w-full bg-indigo-600 hover:bg-indigo-700 text-white hover:text-white border-indigo-600"
-                onClick={() => {
-                  ipc.system.openExternalUrl("https://www.bizsaas.sh/pro");
-                  setOpen(false);
-                }}
-              >
-                Upgrade to Bizsaas Pro
+              <Button variant="outline" size="sm" className="w-full" disabled>
+                Bizsaas Pro coming soon
               </Button>
             </div>
             <DropdownMenuSeparator />
