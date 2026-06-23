@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowRight, Sparkles } from "lucide-react";
+import { AlertTriangle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFreeAgentQuota } from "@/hooks/useFreeAgentQuota";
 
@@ -42,8 +42,6 @@ export function FreeAgentQuotaBanner({
       })
     : "";
 
-  const handleUpgrade = () => {};
-
   return (
     <div
       className="mx-auto max-w-3xl my-3 p-3 rounded-lg border border-amber-500/30 bg-amber-500/10"
@@ -54,15 +52,10 @@ export function FreeAgentQuotaBanner({
         <div className="flex-1 space-y-2">
           <p className="text-sm text-amber-700 dark:text-amber-300">
             You have used all {messagesLimit} messages for the free Agent mode
-            today. Check back in {resetTimeDisplay} ({resetDateTime}). If you
-            don't want to wait, upgrade to Bizsaas Pro or switch back to Build
-            mode.
+            today. Check back in {resetTimeDisplay} ({resetDateTime}), or
+            switch back to Build mode to keep working locally.
           </p>
           <div className="flex flex-wrap gap-2">
-            <Button onClick={handleUpgrade} size="sm" className="gap-1.5">
-              <Sparkles className="h-3.5 w-3.5" />
-              Upgrade to Bizsaas Pro
-            </Button>
             <Button
               onClick={onSwitchToBuildMode}
               variant="outline"
