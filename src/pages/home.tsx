@@ -8,12 +8,11 @@ import { useLoadApps } from "@/hooks/useLoadApps";
 import { useSettings } from "@/hooks/useSettings";
 import { SetupBanner } from "@/components/SetupBanner";
 import { isPreviewOpenAtom } from "@/atoms/viewAtoms";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useStreamChat } from "@/hooks/useStreamChat";
 import { HomeChatInput } from "@/components/chat/HomeChatInput";
 import { usePostHog } from "posthog-js/react";
 import { PrivacyBanner } from "@/components/TelemetryBanner";
-import { INSPIRATION_PROMPTS } from "@/prompts/inspiration_prompts";
 import { useAppVersion } from "@/hooks/useAppVersion";
 
 import {
@@ -24,8 +23,9 @@ import {
 } from "@/components/ui/dialog";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, KeyRound, Plus, Sparkles } from "lucide-react";
 import { ImportAppButton } from "@/components/ImportAppButton";
+import { Card, CardContent } from "@/components/ui/card";
 import { showError } from "@/lib/toast";
 import { invalidateAppQuery } from "@/hooks/useLoadApp";
 import { useQueryClient } from "@tanstack/react-query";
@@ -126,22 +126,6 @@ export default function HomePage() {
 
   // Get the appId from search params
   const appId = search.appId ? Number(search.appId) : null;
-
-  // State for random prompts
-  const [randomPrompts, setRandomPrompts] = useState<
-    typeof INSPIRATION_PROMPTS
-  >([]);
-
-  // Function to get random prompts
-  const getRandomPrompts = useCallback(() => {
-    const shuffled = [...INSPIRATION_PROMPTS].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 3);
-  }, []);
-
-  // Initialize random prompts
-  useEffect(() => {
-    setRandomPrompts(getRandomPrompts());
-  }, [getRandomPrompts]);
 
   // Redirect to app details page if appId is present. Use `replace` so the
   // intermediate `/?appId=…` entry doesn't sit in history and trap the back
@@ -288,67 +272,97 @@ export default function HomePage() {
         />
         <SetupBanner />
 
-        <div className="w-full">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <ImportAppButton className="px-0 pb-0 flex-none" />
-          </div>
+        <div className="w-full space-y-6">
+          <section className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,hsl(var(--primary)/0.18),transparent_34rem)]" />
+            <div className="relative flex flex-col items-center text-center">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs font-medium text-primary">
+                <Sparkles className="size-3.5" />
+                Bizsaas v0.1 · local-first AI app builder
+              </div>
+              <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+                Build locally with Bizsaas
+              </h1>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+                Create, edit, and preview web apps from your desktop using your
+                own AI API key.
+              </p>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <Button
+                  size="lg"
+                  onClick={() =>
+                    setInputValue("Create a todo app with filters")
+                  }
+                >
+                  <Plus className="size-4" />
+                  Create new app
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => navigate({ to: "/settings" })}
+                >
+                  <KeyRound className="size-4" />
+                  Add API key
+                </Button>
+              </div>
+            </div>
+          </section>
+
           <HomeChatInput onSubmit={handleSubmit} />
 
-          <div className="flex flex-col gap-4 mt-2">
-            <div className="flex flex-wrap gap-4 justify-center">
-              {randomPrompts.map((item, index) => (
-                <button
-                  type="button"
-                  key={index}
-                  onClick={() =>
-                    setInputValue(t("buildMeA", { label: item.label }))
-                  }
-                  className="flex items-center gap-3 px-4 py-2 rounded-xl border border-gray-200
-                           bg-white/50 backdrop-blur-sm
-                           transition-all duration-200
-                           hover:bg-white hover:shadow-md hover:border-gray-300
-                           active:scale-[0.98]
-                           dark:bg-gray-800/50 dark:border-gray-700
-                           dark:hover:bg-gray-800 dark:hover:border-gray-600"
-                >
-                  <span className="text-gray-700 dark:text-gray-300">
-                    {item.icon}
-                  </span>
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    {item.label}
-                  </span>
-                </button>
-              ))}
-            </div>
+          <div className="grid gap-4 lg:grid-cols-[1fr_1.15fr]">
+            <Card className="border-border/80 bg-card/70">
+              <CardContent className="p-5">
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Getting started
+                </h2>
+                <ol className="mt-4 space-y-3">
+                  {[
+                    "Add your AI provider key",
+                    "Create a local app",
+                    "Ask Bizsaas to build",
+                    "Preview and refine",
+                  ].map((step, index) => (
+                    <li key={step} className="flex items-center gap-3">
+                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                        {index + 1}
+                      </span>
+                      <span className="text-sm text-foreground">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </CardContent>
+            </Card>
 
-            <button
-              type="button"
-              onClick={() => setRandomPrompts(getRandomPrompts())}
-              className="self-center flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200
-                       bg-white/50 backdrop-blur-sm
-                       transition-all duration-200
-                       hover:bg-white hover:shadow-md hover:border-gray-300
-                       active:scale-[0.98]
-                       dark:bg-gray-800/50 dark:border-gray-700
-                       dark:hover:bg-gray-800 dark:hover:border-gray-600"
-            >
-              <svg
-                className="w-5 h-5 text-gray-700 dark:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-              </svg>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                {t("moreIdeas")}
-              </span>
-            </button>
+            <Card className="border-border/80 bg-card/70">
+              <CardContent className="p-5">
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Try a prompt
+                </h2>
+                <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                  {[
+                    "Create a todo app with filters",
+                    "Build a SaaS landing page",
+                    "Create a dashboard for tracking customers",
+                  ].map((prompt) => (
+                    <button
+                      key={prompt}
+                      type="button"
+                      onClick={() => setInputValue(prompt)}
+                      className="rounded-2xl border border-border bg-background/70 p-4 text-left text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-primary/8"
+                    >
+                      “{prompt}”
+                    </button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="flex justify-center">
+            <ImportAppButton className="px-0 pb-0 flex-none" />
           </div>
         </div>
         <PrivacyBanner />
@@ -388,7 +402,6 @@ export default function HomePage() {
           </DialogContent>
         </Dialog>
       </div>
-      <FeaturedAppShowcase />
     </div>
   );
 }
