@@ -32,15 +32,7 @@ export function ChatErrorBox({
     return (
       <ChatErrorContainer onDismiss={onDismiss}>
         {error}
-        <span className="ml-1">
-          <ExternalLink
-            href="https://www.bizsaas.sh/pro"
-            variant="primary"
-          >
-            Access with Bizsaas Pro
-          </ExternalLink>
-        </span>{" "}
-        or switch to another model.
+        <span className="ml-1">Bizsaas Pro is coming soon.</span> Switch to another model.
       </ChatErrorContainer>
     );
   }
@@ -61,13 +53,6 @@ export function ChatErrorBox({
       <ChatErrorContainer onDismiss={onDismiss}>
         {error}
         <div className="mt-2 space-y-2 space-x-2">
-          <ExternalLink
-            href="https://www.bizsaas.sh/pro"
-            variant="primary"
-          >
-            Upgrade to Bizsaas Pro
-          </ExternalLink>
-
           <ExternalLink href="https://bizsaas.sh/docs/help/ai-rate-limit">
             Troubleshooting guide
           </ExternalLink>
@@ -80,14 +65,7 @@ export function ChatErrorBox({
     return (
       <ChatInfoContainer onDismiss={onDismiss}>
         <span>
-          Looks like you don't have a valid Bizsaas Pro key.{" "}
-          <ExternalLink
-            href="https://www.bizsaas.sh/pro"
-            variant="primary"
-          >
-            Upgrade to Bizsaas Pro
-          </ExternalLink>{" "}
-          today.
+          Bizsaas Pro is coming soon.
         </span>
       </ChatInfoContainer>
     );
@@ -96,14 +74,7 @@ export function ChatErrorBox({
     return (
       <ChatInfoContainer onDismiss={onDismiss}>
         <span>
-          You have used all of your Bizsaas AI credits this month.{" "}
-          <ExternalLink
-            href="https://www.bizsaas.sh/pro"
-            variant="primary"
-          >
-            Bizsaas Pro is coming soon
-          </ExternalLink>{" "}
-          with more AI credits
+          Bizsaas Pro is coming soon with more AI credits.
         </span>
       </ChatInfoContainer>
     );
@@ -121,16 +92,8 @@ export function ChatErrorBox({
   if (error.includes("FREE_AGENT_QUOTA_EXCEEDED")) {
     return (
       <ChatErrorContainer onDismiss={onDismiss}>
-        You have used all {messagesLimit} free Agent messages for today. Please
-        upgrade to Bizsaas Pro for unlimited access or switch to Build mode.
-        <div className="mt-2 space-y-2 space-x-2">
-          <ExternalLink
-            href="https://www.bizsaas.sh/pro"
-            variant="primary"
-          >
-            Upgrade to Bizsaas Pro
-          </ExternalLink>
-        </div>
+        You have used all {messagesLimit} free Agent messages for today. Bizsaas
+        Pro is coming soon; switch to Build mode for now.
       </ChatErrorContainer>
     );
   }
@@ -142,12 +105,9 @@ export function ChatErrorBox({
         {!isDyadProEnabled &&
           error.includes(AI_STREAMING_ERROR_MESSAGE_PREFIX) &&
           !error.includes("TypeError: terminated") && (
-            <ExternalLink
-              href="https://www.bizsaas.sh/pro"
-              variant="primary"
-            >
-              Upgrade to Bizsaas Pro
-            </ExternalLink>
+            <span className="text-sm text-muted-foreground">
+              Bizsaas Pro is coming soon.
+            </span>
           )}
         {isDyadProEnabled && onStartNewChat && (
           <Tooltip>

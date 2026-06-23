@@ -1,15 +1,12 @@
 import { Lock, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ipc } from "@/ipc/types";
 
 interface AnnotatorOnlyForProProps {
   onGoBack: () => void;
 }
 
 export const AnnotatorOnlyForPro = ({ onGoBack }: AnnotatorOnlyForProProps) => {
-  const handleGetPro = () => {
-    ipc.system.openExternalUrl("https://bizsaas.sh/pro");
-  };
+  const handleGetPro = () => {};
 
   return (
     <div className="w-full h-full bg-background relative">
@@ -45,7 +42,7 @@ export const AnnotatorOnlyForPro = ({ onGoBack }: AnnotatorOnlyForProProps) => {
           size="lg"
           className="px-8 shadow-md hover:shadow-lg transition-all"
         >
-          Get Bizsaas Pro
+          Bizsaas Pro coming soon
         </Button>
       </div>
     </div>

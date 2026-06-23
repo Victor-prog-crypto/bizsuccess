@@ -5,7 +5,6 @@ import { chatRoute } from "./routes/chat";
 import { settingsRoute } from "./routes/settings";
 import { providerSettingsRoute } from "./routes/settings/providers/$provider";
 import { appDetailsRoute } from "./routes/app-details";
-import { hubRoute } from "./routes/hub";
 import { libraryRoute } from "./routes/library";
 import { appsRoute } from "./routes/apps";
 import { themesRoute } from "./routes/themes";
@@ -14,7 +13,6 @@ import { mediaRoute } from "./routes/media";
 
 const routeTree = rootRoute.addChildren([
   homeRoute,
-  hubRoute,
   libraryRoute,
   appsRoute,
   themesRoute,

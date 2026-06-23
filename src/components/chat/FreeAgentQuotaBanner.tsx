@@ -1,7 +1,6 @@
 import { AlertTriangle, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFreeAgentQuota } from "@/hooks/useFreeAgentQuota";
-import { ipc } from "@/ipc/types";
 
 interface FreeAgentQuotaBannerProps {
   onSwitchToBuildMode: () => void;
@@ -43,9 +42,7 @@ export function FreeAgentQuotaBanner({
       })
     : "";
 
-  const handleUpgrade = () => {
-    ipc.system.openExternalUrl("https://bizsaas.sh/pro");
-  };
+  const handleUpgrade = () => {};
 
   return (
     <div

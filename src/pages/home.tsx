@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+﻿import { useTranslation } from "react-i18next";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import { useAtom, useSetAtom } from "jotai";
 import { homeChatInputValueAtom } from "../atoms/chatAtoms";
@@ -32,18 +32,11 @@ import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "@/lib/queryKeys";
 import { ForceCloseDialog } from "@/components/ForceCloseDialog";
 import { useSelectChat } from "@/hooks/useSelectChat";
-import { FeaturedAppShowcase } from "@/components/FeaturedAppShowcase";
-
 import type { FileAttachment } from "@/ipc/types";
 import type { ListedApp } from "@/ipc/types/app";
 import { NEON_TEMPLATE_IDS } from "@/shared/templates";
 import { neonTemplateHook } from "@/client_logic/template_hook";
-import {
-  ProBanner,
-  ManageDyadProButton,
-  SetupDyadProButton,
-} from "@/components/ProBanner";
-import { hasDyadProKey, getEffectiveDefaultChatMode } from "@/lib/schemas";
+import { getEffectiveDefaultChatMode } from "@/lib/schemas";
 import { useFreeAgentQuota } from "@/hooks/useFreeAgentQuota";
 import { useInitialChatMode } from "@/hooks/useInitialChatMode";
 
@@ -151,7 +144,7 @@ export default function HomePage() {
   }, [getRandomPrompts]);
 
   // Redirect to app details page if appId is present. Use `replace` so the
-  // intermediate `/?appId=…` entry doesn't sit in history and trap the back
+  // intermediate `/?appId=â€¦` entry doesn't sit in history and trap the back
   // button on app-details in a redirect loop.
   useEffect(() => {
     if (appId) {
@@ -288,13 +281,6 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col items-center justify-center max-w-3xl w-full m-auto p-8 relative">
-        <div className="fixed top-16 right-8 z-50">
-          {settings && hasDyadProKey(settings) ? (
-            <ManageDyadProButton className="mt-0 w-auto h-9 px-3 text-base shadow-sm bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800" />
-          ) : (
-            <SetupDyadProButton />
-          )}
-        </div>
         <ForceCloseDialog
           isOpen={forceCloseDialogOpen}
           onClose={() => setForceCloseDialogOpen(false)}
@@ -364,7 +350,6 @@ export default function HomePage() {
               </span>
             </button>
           </div>
-          <ProBanner />
         </div>
         <PrivacyBanner />
 
@@ -403,7 +388,63 @@ export default function HomePage() {
           </DialogContent>
         </Dialog>
       </div>
-      <FeaturedAppShowcase />
-    </div>
+      <section className="mx-auto my-8 w-full max-w-5xl rounded-3xl border border-neutral-800 bg-neutral-950/70 p-8 shadow-2xl">
+        <div className="mb-6 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300">
+          Bizsaas v0.1 · Local-first desktop builder
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+              Build locally with Bizsaas
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-300 md:text-lg">
+              Create, edit, and preview web apps from your desktop using your own AI API key.
+              Bizsaas v0.1 is focused on a simple local-first workflow.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="/"
+                className="rounded-xl bg-gradient-to-r from-sky-500 to-emerald-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/20"
+              >
+                Create new app
+              </a>
+
+              <a
+                href="/settings"
+                className="rounded-xl border border-neutral-700 bg-neutral-900 px-5 py-3 text-sm font-bold text-neutral-100 hover:bg-neutral-800"
+              >
+                Add API key
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-5">
+            <h2 className="text-lg font-bold text-white">Getting started</h2>
+            <ol className="mt-4 space-y-3 text-sm text-neutral-300">
+              <li className="rounded-xl bg-neutral-950/70 p-3">1. Add your AI provider key</li>
+              <li className="rounded-xl bg-neutral-950/70 p-3">2. Create a local app</li>
+              <li className="rounded-xl bg-neutral-950/70 p-3">3. Ask Bizsaas to build</li>
+              <li className="rounded-xl bg-neutral-950/70 p-3">4. Preview and refine</li>
+            </ol>
+          </div>
+        </div>
+
+        <div className="mt-8 grid gap-3 md:grid-cols-3">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
+            <p className="text-sm font-semibold text-white">Create a todo app with filters</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
+            <p className="text-sm font-semibold text-white">Build a SaaS landing page</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
+            <p className="text-sm font-semibold text-white">Create a dashboard for tracking customers</p>
+          </div>
+        </div>
+      </section>
+</div>
   );
 }
+

@@ -7,7 +7,7 @@ export type AppSidebarHoverState =
 
 export type AppSidebarPanel = "Apps" | "Settings" | "Library";
 
-export type AppSidebarItemTitle = AppSidebarPanel | "Hub";
+export type AppSidebarItemTitle = AppSidebarPanel;
 
 export function getRouteSidebarPanel(pathname: string): AppSidebarPanel | null {
   if (
@@ -82,7 +82,7 @@ export function isSidebarItemActive({
   if (title === "Library") {
     return pathname.startsWith("/library");
   }
-  return pathname.startsWith("/hub");
+  return false;
 }
 
 export function shouldShowSelectedAppChatList({
