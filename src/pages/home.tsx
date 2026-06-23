@@ -270,8 +270,6 @@ export default function HomePage() {
           onClose={() => setForceCloseDialogOpen(false)}
           performanceData={performanceData}
         />
-        <SetupBanner />
-
         <div className="w-full space-y-6">
           <section className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,hsl(var(--primary)/0.18),transparent_34rem)]" />
@@ -304,37 +302,60 @@ export default function HomePage() {
                   onClick={() => navigate({ to: "/settings" })}
                 >
                   <KeyRound className="size-4" />
-                  Add API key
+                  Add API key / Open settings
                 </Button>
               </div>
+
+              <Card className="mt-8 w-full max-w-2xl border-border/80 bg-background/75 text-left">
+                <CardContent className="p-5">
+                  <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                    Getting started
+                  </h2>
+                  <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {[
+                      "Add your AI provider key",
+                      "Create a local app",
+                      "Ask Bizsaas to build",
+                      "Preview and refine",
+                    ].map((step, index) => (
+                      <li key={step} className="flex items-center gap-3">
+                        <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                          {index + 1}
+                        </span>
+                        <span className="text-sm text-foreground">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </CardContent>
+              </Card>
             </div>
           </section>
 
-          <HomeChatInput onSubmit={handleSubmit} />
+          <section aria-labelledby="setup-heading" className="space-y-3">
+            <h2
+              id="setup-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Setup
+            </h2>
+            <SetupBanner defaultOpenAll />
+          </section>
 
-          <div className="grid gap-4 lg:grid-cols-[1fr_1.15fr]">
-            <Card className="border-border/80 bg-card/70">
-              <CardContent className="p-5">
-                <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Getting started
-                </h2>
-                <ol className="mt-4 space-y-3">
-                  {[
-                    "Add your AI provider key",
-                    "Create a local app",
-                    "Ask Bizsaas to build",
-                    "Preview and refine",
-                  ].map((step, index) => (
-                    <li key={step} className="flex items-center gap-3">
-                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
-                        {index + 1}
-                      </span>
-                      <span className="text-sm text-foreground">{step}</span>
-                    </li>
-                  ))}
-                </ol>
-              </CardContent>
-            </Card>
+          <section aria-labelledby="prompt-heading" className="space-y-4">
+            <div>
+              <h2
+                id="prompt-heading"
+                className="text-lg font-semibold text-foreground"
+              >
+                Create with a prompt
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Describe the local app you want Bizsaas to create or choose an
+                example to get started.
+              </p>
+            </div>
+
+            <HomeChatInput onSubmit={handleSubmit} />
 
             <Card className="border-border/80 bg-card/70">
               <CardContent className="p-5">
@@ -359,7 +380,7 @@ export default function HomePage() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </section>
 
           <div className="flex justify-center">
             <ImportAppButton className="px-0 pb-0 flex-none" />

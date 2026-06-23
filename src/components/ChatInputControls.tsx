@@ -30,6 +30,7 @@ export function ChatInputControls({
     !!settings?.enableMcpServersForBuildMode &&
     selectedMode === "build" &&
     enabledMcpServersCount > 0;
+  const isHomePage = routerState.location.pathname === "/";
 
   return (
     <div className="flex items-center">
@@ -42,7 +43,7 @@ export function ChatInputControls({
       )}
       <div className="w-1.5"></div>
       <ModelPicker />
-      <ProModeSelector />
+      {!isHomePage && <ProModeSelector />}
       {showContextFilesPicker && <ContextFilesPicker />}
     </div>
   );
