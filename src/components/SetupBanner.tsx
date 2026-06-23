@@ -40,7 +40,9 @@ type NodeInstallStep =
   | "continue-processing"
   | "finished-checking";
 
-export function SetupBanner() {
+export function SetupBanner({
+  defaultOpenAll = false,
+}: { defaultOpenAll?: boolean } = {}) {
   const { t } = useTranslation("home");
   const posthog = usePostHog();
   const navigate = useNavigate();
@@ -144,16 +146,8 @@ export function SetupBanner() {
     itemsNeedAction.push("ai-setup");
   }
 
-  if (itemsNeedAction.length === 0) {
-    return (
-      <h1 className="text-center text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 tracking-tight">
-        {t("setup.buildNewApp")}
-      </h1>
-    );
-  }
-
   const bannerClasses = cn(
-    "w-full mb-6 border rounded-xl shadow-sm overflow-hidden",
+    "w-full border rounded-xl shadow-sm overflow-hidden",
     "border-zinc-200 dark:border-zinc-700",
   );
 
@@ -170,11 +164,14 @@ export function SetupBanner() {
 
   return (
     <>
-      <p className="text-xl font-medium text-zinc-700 dark:text-zinc-300 p-4 pt-6">
-        {t("setup.setupDyad")}
-      </p>
       <div className={bannerClasses}>
-        <Accordion multiple className="w-full" defaultValue={itemsNeedAction}>
+        <Accordion
+          multiple
+          className="w-full"
+          defaultValue={
+            defaultOpenAll ? ["node-setup", "ai-setup"] : itemsNeedAction
+          }
+        >
           <AccordionItem
             value="node-setup"
             className={cn(
