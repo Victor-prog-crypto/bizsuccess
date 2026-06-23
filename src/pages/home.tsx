@@ -286,6 +286,63 @@ export default function HomePage() {
           onClose={() => setForceCloseDialogOpen(false)}
           performanceData={performanceData}
         />
+<section className="mx-auto mb-8 mt-2 w-full max-w-5xl rounded-3xl border border-neutral-800 bg-neutral-950/70 p-8 shadow-2xl">
+        <div className="mb-6 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300">
+          Bizsaas v0.1 · Local-first desktop builder
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+              Build locally with Bizsaas
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-300 md:text-lg">
+              Create, edit, and preview web apps from your desktop using your own AI API key.
+              Bizsaas v0.1 is focused on a simple local-first workflow.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="/"
+                className="rounded-xl bg-gradient-to-r from-sky-500 to-emerald-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/20"
+              >
+                Create new app
+              </a>
+
+              <a
+                href="/settings"
+                className="rounded-xl border border-neutral-700 bg-neutral-900 px-5 py-3 text-sm font-bold text-neutral-100 hover:bg-neutral-800"
+              >
+                Add API key
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-5">
+            <h2 className="text-lg font-bold text-white">Getting started</h2>
+            <ol className="mt-4 space-y-3 text-sm text-neutral-300">
+              <li className="rounded-xl bg-neutral-950/70 p-3">1. Add your AI provider key</li>
+              <li className="rounded-xl bg-neutral-950/70 p-3">2. Create a local app</li>
+              <li className="rounded-xl bg-neutral-950/70 p-3">3. Ask Bizsaas to build</li>
+              <li className="rounded-xl bg-neutral-950/70 p-3">4. Preview and refine</li>
+            </ol>
+          </div>
+        </div>
+
+        <div className="mt-8 grid gap-3 md:grid-cols-3">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
+            <p className="text-sm font-semibold text-white">Create a todo app with filters</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
+            <p className="text-sm font-semibold text-white">Build a SaaS landing page</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
+            <p className="text-sm font-semibold text-white">Create a dashboard for tracking customers</p>
+          </div>
+        </div>
+      </section>
+
         <SetupBanner />
 
         <div className="w-full">
@@ -387,64 +444,8 @@ export default function HomePage() {
             </div>
           </DialogContent>
         </Dialog>
-      </div>
-      <section className="mx-auto my-8 w-full max-w-5xl rounded-3xl border border-neutral-800 bg-neutral-950/70 p-8 shadow-2xl">
-        <div className="mb-6 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300">
-          Bizsaas v0.1 · Local-first desktop builder
-        </div>
-
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
-              Build locally with Bizsaas
-            </h1>
-
-            <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-300 md:text-lg">
-              Create, edit, and preview web apps from your desktop using your own AI API key.
-              Bizsaas v0.1 is focused on a simple local-first workflow.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="/"
-                className="rounded-xl bg-gradient-to-r from-sky-500 to-emerald-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/20"
-              >
-                Create new app
-              </a>
-
-              <a
-                href="/settings"
-                className="rounded-xl border border-neutral-700 bg-neutral-900 px-5 py-3 text-sm font-bold text-neutral-100 hover:bg-neutral-800"
-              >
-                Add API key
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-5">
-            <h2 className="text-lg font-bold text-white">Getting started</h2>
-            <ol className="mt-4 space-y-3 text-sm text-neutral-300">
-              <li className="rounded-xl bg-neutral-950/70 p-3">1. Add your AI provider key</li>
-              <li className="rounded-xl bg-neutral-950/70 p-3">2. Create a local app</li>
-              <li className="rounded-xl bg-neutral-950/70 p-3">3. Ask Bizsaas to build</li>
-              <li className="rounded-xl bg-neutral-950/70 p-3">4. Preview and refine</li>
-            </ol>
-          </div>
-        </div>
-
-        <div className="mt-8 grid gap-3 md:grid-cols-3">
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
-            <p className="text-sm font-semibold text-white">Create a todo app with filters</p>
-          </div>
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
-            <p className="text-sm font-semibold text-white">Build a SaaS landing page</p>
-          </div>
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
-            <p className="text-sm font-semibold text-white">Create a dashboard for tracking customers</p>
-          </div>
-        </div>
-      </section>
-</div>
+      </div></div>
   );
 }
+
 
