@@ -34,9 +34,7 @@ function getKeyButtonText({
   isDyad: boolean;
 }) {
   if (isDyad) {
-    return isConfigured
-      ? "Manage Bizsaas Pro Subscription"
-      : "Setup Bizsaas Pro Subscription";
+    return isConfigured ? "Bizsaas Pro configured" : "Bizsaas Pro coming soon";
   }
   return isConfigured ? "Manage API Keys" : "Setup API Key";
 }
@@ -52,7 +50,7 @@ export function ProviderSettingsHeader({
 }: ProviderSettingsHeaderProps) {
   const handleGetApiKeyClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (providerWebsiteUrl) {
+    if (providerWebsiteUrl && !isDyad) {
       ipc.system.openExternalUrl(providerWebsiteUrl);
     }
   };

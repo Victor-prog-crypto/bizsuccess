@@ -5,9 +5,8 @@ import openAiLogo from "../../assets/ai-logos/openai-logo.svg";
 import googleLogo from "../../assets/ai-logos/google-logo.svg";
 // @ts-ignore
 import anthropicLogo from "../../assets/ai-logos/anthropic-logo.svg";
-import { ipc } from "@/ipc/types";
 import { useState } from "react";
-import { ArrowUpRight, KeyRound, Wallet } from "lucide-react";
+import { KeyRound, Wallet } from "lucide-react";
 
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -40,16 +39,13 @@ export function ManageDyadProButton({ className }: { className?: string }) {
       variant="outline"
       size="lg"
       className={cn(
-        "cursor-pointer w-full mt-4 bg-(--background-lighter) text-primary",
+        "w-full mt-4 bg-(--background-lighter) text-primary",
         className,
       )}
-      onClick={() => {
-        ipc.system.openExternalUrl("https://www.bizsaas.sh/pro");
-      }}
+      aria-disabled="true"
     >
       <Wallet aria-hidden="true" className="w-5 h-5" />
       {t("proBanner.manageDyadPro")}
-      <ArrowUpRight aria-hidden="true" className="w-5 h-5" />
     </Button>
   );
 }
@@ -60,10 +56,8 @@ export function SetupDyadProButton() {
     <Button
       variant="outline"
       size="lg"
-      className="cursor-pointer w-full bg-(--background-lighter) text-primary"
-      onClick={() => {
-        ipc.system.openExternalUrl("https://www.bizsaas.sh/pro");
-      }}
+      className="w-full bg-(--background-lighter) text-primary"
+      aria-disabled="true"
     >
       <KeyRound aria-hidden="true" />
       {t("proBanner.alreadyHavePro")}
@@ -75,10 +69,8 @@ export function AiAccessBanner() {
   const { t } = useTranslation("home");
   return (
     <div
-      className="w-full py-2 sm:py-2.5 md:py-3 rounded-lg bg-gradient-to-br from-white via-indigo-50 to-sky-100 dark:from-indigo-700 dark:via-indigo-700 dark:to-indigo-900 flex items-center justify-center relative overflow-hidden ring-1 ring-inset ring-black/5 dark:ring-white/10 shadow-sm cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-[1px]"
-      onClick={() => {
-        ipc.system.openExternalUrl("https://www.bizsaas.sh/pro");
-      }}
+      className="w-full py-2 sm:py-2.5 md:py-3 rounded-lg bg-gradient-to-br from-white via-indigo-50 to-sky-100 dark:from-indigo-700 dark:via-indigo-700 dark:to-indigo-900 flex items-center justify-center relative overflow-hidden ring-1 ring-inset ring-black/5 dark:ring-white/10 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-[1px]"
+      aria-disabled="true"
     >
       <div
         className="absolute inset-0 z-0 bg-gradient-to-tr from-white/60 via-transparent to-transparent pointer-events-none dark:from-white/10"
@@ -95,10 +87,11 @@ export function AiAccessBanner() {
           </div>
           <button
             type="button"
-            aria-label="Subscribe to Bizsaas Pro"
+            disabled
+            aria-label="Bizsaas Pro coming soon"
             className="inline-flex items-center rounded-md bg-white/90 text-indigo-800 hover:bg-white shadow px-3 py-1.5 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-white/50"
           >
-            {t("proBanner.getDyadPro")}
+            Bizsaas Pro coming soon
           </button>
         </div>
 
@@ -140,10 +133,8 @@ export function SmartContextBanner() {
   const { t } = useTranslation("home");
   return (
     <div
-      className="w-full py-2 sm:py-2.5 md:py-3 rounded-lg bg-gradient-to-br from-emerald-50 via-emerald-100 to-emerald-200 dark:from-emerald-700 dark:via-emerald-700 dark:to-emerald-900 flex items-center justify-center relative overflow-hidden ring-1 ring-inset ring-emerald-900/10 dark:ring-white/10 shadow-sm cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-[1px]"
-      onClick={() => {
-        ipc.system.openExternalUrl("https://www.bizsaas.sh/pro");
-      }}
+      className="w-full py-2 sm:py-2.5 md:py-3 rounded-lg bg-gradient-to-br from-emerald-50 via-emerald-100 to-emerald-200 dark:from-emerald-700 dark:via-emerald-700 dark:to-emerald-900 flex items-center justify-center relative overflow-hidden ring-1 ring-inset ring-emerald-900/10 dark:ring-white/10 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-[1px]"
+      aria-disabled="true"
     >
       <div
         className="absolute inset-0 z-0 bg-gradient-to-tr from-white/60 via-transparent to-transparent pointer-events-none dark:from-white/10"
@@ -165,10 +156,11 @@ export function SmartContextBanner() {
           </div>
           <button
             type="button"
-            aria-label="Get Bizsaas Pro"
+            disabled
+            aria-label="Bizsaas Pro coming soon"
             className="inline-flex items-center rounded-md bg-white/90 text-emerald-800 hover:bg-white shadow px-3 py-1.5 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-white/50"
           >
-            {t("proBanner.getDyadPro")}
+            Bizsaas Pro coming soon
           </button>
         </div>
       </div>

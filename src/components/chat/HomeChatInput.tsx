@@ -232,9 +232,7 @@ export function HomeChatInput({
                 <TooltipTrigger
                   render={
                     <button
-                      onClick={() =>
-                        ipc.system.openExternalUrl("https://bizsaas.sh/pro")
-                      }
+                      disabled
                       aria-label="Voice to text (Pro)"
                       className="px-2 py-2 mb-0.5 text-muted-foreground hover:text-primary rounded-lg transition-colors duration-150 cursor-pointer relative"
                     />

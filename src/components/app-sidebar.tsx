@@ -3,7 +3,6 @@ import {
   Home,
   Settings,
   HelpCircle,
-  Store,
   BookOpen,
 } from "lucide-react";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
@@ -56,11 +55,6 @@ const items = [
     title: "Library",
     to: "/library",
     icon: BookOpen,
-  },
-  {
-    title: "Hub",
-    to: "/hub",
-    icon: Store,
   },
 ] satisfies Array<{
   title: AppSidebarItemTitle;

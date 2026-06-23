@@ -56,7 +56,7 @@ export function Message({ spans }: MessageConfig) {
 export const TURBO_EDITS_PROMO_MESSAGE: MessageConfig = {
   spans: [
     { type: "text", content: "Tired of waiting on AI?" },
-    { type: "link", content: " Get Bizsaas Pro", url: "https://bizsaas.sh/pro#ai" },
+    { type: "link", content: " Bizsaas Pro coming soon", url: "#" },
     { type: "text", content: " for faster edits with Turbo Edits." },
   ],
 };
@@ -67,7 +67,7 @@ export const SMART_CONTEXT_PROMO_MESSAGE: MessageConfig = {
     {
       type: "link",
       content: "Bizsaas Pro's Smart Context",
-      url: "https://bizsaas.sh/pro#ai",
+      url: "#",
     },
   ],
 };
