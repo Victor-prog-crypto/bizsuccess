@@ -1,6 +1,4 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
-import { MadeWithDyad } from "@/components/made-with-dyad";
+﻿// Update this page (the content is just a fallback if you fail to update the page)
 
 const Index = () => {
   return (
@@ -11,9 +9,9 @@ const Index = () => {
           Start building your amazing project here!
         </p>
       </div>
-      <MadeWithDyad />
     </div>
   );
 };
 
 export default Index;
+
